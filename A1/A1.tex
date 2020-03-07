@@ -125,4 +125,29 @@ Some Routine Calculations
         Therefore, neither of them is right.
     \end{solution}
 \end{exercise}
+\begin{exercise}
+   Two Children Paradox - Birthday Party\\
+   \begin{solution}
+Denote the events as:\\
+A: The lady's other child is a girl;\\
+B: The lady's boy is born in July;\\
+Then, according to the problem, what we need to calculate is $P[A|B]$.\\
+We define the sample space of the gender as $\{(b,b),(b,g),(g,b)\}$, where 'b' means the child is a boy and 'g' means the child is a girl and the former child is older than the latter. Each sample point has the same probability, i.e. $$P[(b,b)]=P[(b,g)]=P[(g,b)]=\frac{1}{3}$$
+For $(b,g)$ and $(g,b)$, the probability of the boy born in July should be $\frac{1}{12}$.\\
+For $(b,b)$, the probability of at least one boy born in July can be calculated as follows:
+\begin{enumerate}[label=\roman*)]
+    \item Only one boy is born in July: $\frac{1}{12}\times\frac{11}{12}\times 2=\frac{22}{144}$
+    \item Two boys are both born in July: $\frac{1}{12}\times\frac{1}{12}=\frac{1}{144}$
+\end{enumerate}
+Then, the probability of at least one boy born in July is $\frac{22}{144}+\frac{1}{144}=\frac{23}{144}$
+   \end{solution}
+
+Then, using the formula of conditional formula,
+\begin{align*}
+    P[A|B]&=\frac{P[A\cap B]}{P[B]}\\
+    &=\frac{\frac{1}{12}\times \frac{1}{3}+\frac{1}{12}\times\frac{1}{3}}{\frac{1}{12}\times\frac{1}{3}+\frac{1}{12}\times\frac{1}{3}+\frac{23}{144}\times \frac{1}{3}}\\
+    &=\frac{24}{47}
+\end{align*}
+    \end{exercise}
+\end{exercise}
 \end{document}
