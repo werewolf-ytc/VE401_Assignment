@@ -49,11 +49,11 @@ Some Routine Calculations
 \begin{enumerate}[label=\roman*)]
 \item
 \begin{proof}
-Since $A\subset B$, $|A|\leq |B|$. If $P[B]=0$ then $P[A]=P[B]=0$. Now suppose that $P[B]\neq 0$. Since$P[A]/P[B]=|A|/|B|$, we have $P[A]/P[B]\leq 1$ hence $P[A]\leq P[B]$.
+    Since $A\subset B$, $B=A+B\backslash A$. Note that $A \cap B \backslash A = \emptyset $. Thus $P[B]=P[A]+P[B\backslash A]\geq P[A]$. Therefore $P[A]\leq P[B]$.
 \end{proof}
 \item
 \begin{proof}
-Since A and B are independent, we have $P[A\cap B]=P[A]P[B]$. We know that $P[A]P[B]>0$ so $P[A\cap B]>0$. Thus $P[A\cap B]=\frac{|A\cap B|}{|S|}>0$, which means that $|A\cap B|> 0$. Therefore, $A\cap B\neq \emptyset$ and hence they are not mutually exclusive.
+    Since A and B are independent, we have $P[A\cap B]=P[A]P[B]$. We know that $P[A]P[B]>0$ so $P[A\cap B]>0$. Thus $P[A\cap B]=\frac{|A\cap B|}{|S|}>0$, which means that $|A\cap B|> 0$. Therefore, $A\cap B\neq \emptyset$ and hence they are not mutually exclusive.
 \end{proof}
 \item
 \begin{proof}
