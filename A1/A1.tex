@@ -1,8 +1,29 @@
 \documentclass[12pt,a4paper]{article}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{enumerate}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{enumitem,balance}
+\usepackage{wrapfig}
+\usepackage{mathrsfs,euscript}
+\usepackage[usenames]{xcolor}
+\usepackage{hyperref}
+\usepackage[vlined,ruled,commentsnumbered,linesnumbered]{algorithm2e}
+
+%note: use \setcounter{exercise}{5} to change the numbering
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{solution}{Solution}
+
+%copied from VE281. I don't know what they are used for. Some are used to expand the margin.
+\setlength{\oddsidemargin}{-0.365in}
+\setlength{\evensidemargin}{-0.365in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{10.1in}
+\setlength{\textwidth}{7in}
+\makeatletter \renewenvironment{proof}[1][Proof] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse} \makeatother
+\makeatletter
+\renewenvironment{solution}[1][Solution] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse} \makeatother
 
 \begin{document}
 \title{VE401 Assignment}
@@ -10,5 +31,17 @@
 \maketitle
 
 \newpage
+
+\begin{exercise}
+Elementary Probability
+\begin{solution}
+We use Cardano's principle to get the probability. The number of ways to pick 120 people from 2000 individuals is
+$$n_1=\frac{2000!}{120!\times(2000-120)!}$$
+The number of ways that me and my friend are both chosen is equal to the number of ways to choose 118 people from 1998 individuals, which is
+$$n_2=\frac{1998!}{118!\times(1998-118)!}$$
+Therefore the probability that me and my friend will both be chosen is
+$$\frac{n_2}{n_1}=\frac{\frac{1998!}{118!\times(1998-118)!}}{\frac{2000!}{120!\times(2000-120)!}}=0.357\%$$
+\end{solution}
+\end{exercise}
 
  \end{document}
