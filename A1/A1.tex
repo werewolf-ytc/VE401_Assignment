@@ -145,12 +145,29 @@ For $(b,b)$, the probability of at least one boy born in July can be calculated 
 Then, the probability of at least one boy born in July is $\frac{22}{144}+\frac{1}{144}=\frac{23}{144}$
    \end{solution}
 
+Here we calculate $P[A\cap B]$. We use the total probability,
+\begin{equation*}
+    \begin{split}
+    P[A\cap B]&=P[A\cap B|(b,b)]P[(b,b)]+P[A\cap B|(b,g)]P[(b,g)]+P[A\cap B|(g,b)]P[(g,b)]\\
+    &=0\times \frac{1}{3}+\frac{1}{12}\times \frac{1}{3}+\frac{1}{12}\times\frac{1}{3}\\
+    &=\frac{1}{18}
+    \end{split}
+\end{equation*}
+
+Similarly, we can calculate $P[B]$.
+\begin{equation*}
+\begin{split}
+    P[B]&=P[B|(b,b)]P[(b,b)]+P[B|(b,g)]P[(b,g)]+P[B|(g,b)]P[(g,b)]\\
+    &=\frac{23}{144}\times \frac{1}{3}+\frac{1}{12}\times\frac{1}{3}+\frac{1}{12}\times\frac{1}{3}\\
+    &=\frac{47}{432}
+\end{split}
+\end{equation*}
 Then, using the formula of conditional formula,
 \begin{align*}
     P[A|B]&=\frac{P[A\cap B]}{P[B]}\\
-    &=\frac{\frac{1}{12}\times \frac{1}{3}+\frac{1}{12}\times\frac{1}{3}}{\frac{1}{12}\times\frac{1}{3}+\frac{1}{12}\times\frac{1}{3}+\frac{23}{144}\times \frac{1}{3}}\\
+    &=\frac{\frac{1}{18}}{\frac{47}{432}}\\
     &=\frac{24}{47}
 \end{align*}
-    \end{exercise}
+\end{exercise}
 \end{document}
 
