@@ -37,9 +37,40 @@
 
 \begin{exercise}
 Discrete Uniform Distribution
-\begin{solution}
-Not yet.
-\end{solution}
+\begin{enumerate}
+    \item 
+    \begin{solution}
+            With the parameter $n$, we have
+            \begin{equation*}
+                \begin{split}
+                m_x(t)&=E(e^{xt})=\sum_{k=1}^{n} e^{x_k t}\frac{1}{n}\\
+                &=\frac{1}{n}\sum_{k=1}^{n} e^{x_k t}
+                \end{split}
+            \end{equation*}
+    \end{solution}
+    \item \begin{solution}
+        From the moment generating function we get that
+        \begin{equation*}
+            \begin{split}
+            E[X]&=\frac{d}{dt}m_x(t)|_{t=0}\\
+            &=\frac{1}{n}\sum_{k=1}^n [\frac{d}{dt}e^{x_k t}|_{t=0}]\\
+            &=\frac{1}{n}\sum_{k=1}^n x_k
+            \end{split}
+        \end{equation*}
+        and
+        \begin{equation*}
+            \begin{split}
+            E[X^2]&=\frac{d^2}{dt^2}m_x(t)|_{t=0}\\
+            &=\frac{1}{n}\sum_{k=1}^n[\frac{d^2}{dt^2}e^{x_k t}|_{t=0}]\\
+            &=\frac{1}{n}\sum_{k=1}^n x_k^2
+            \end{split}
+        \end{equation*}
+        And hence the variance is given by
+        \begin{equation*}
+            Var[X]=E[X^2]-E[X]^2=\frac{1}{n}\sum_{k=1}^n x_k^2-\frac{1}{n^2}(\sum_{k=1}^n x_k)^2
+        \end{equation*}
+    \end{solution}
+\end{enumerate}
 \end{exercise}
 \end{document}
 
