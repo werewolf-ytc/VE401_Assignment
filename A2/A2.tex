@@ -37,7 +37,7 @@
 
 \begin{exercise}
 Discrete Uniform Distribution
-\begin{enumerate}
+\begin{enumerate}[label=\roman*)]
     \item 
     \begin{solution}
             With the parameter $n$, we have
@@ -111,6 +111,54 @@ Discrete Uniform Distribution
         
         Therefore, by induction we have proved that $f_X(x)=f_Y(x)$ for $x=0,...,n$.
     \end{proof}
+\end{exercise}
+
+\begin{exercise}
+Sums of Independent Discrete Random Variables
+\begin{enumerate}[label=\roman*)]
+    \item \begin{proof}
+        We first divide $x+y\in ranZ$ into two parts: $x+y=z$ and $x+y\neq z$.
+        \begin{equation*}
+            \begin{split}
+                P[Z=z]&=P[X+Y=z]\\
+                &=\sum_{x+y\in ranZ} P[X+Y=z|X=x\land Y=y]\cdot P[X=x\land Y=y]\\
+                &=\sum_{x+y\neq z} P[X+Y=z|X=x\land Y=y]\cdot P[X=x\land Y=y]\\
+                &+\sum_{x+y=z} P[X+Y=z|X=x\land Y=y]\cdot P[X=x\land Y=y]
+            \end{split}
+        \end{equation*}
+        We note that if $x+y\neq z$, then $P[x+y=z]=0$. Hence
+        \begin{equation*}
+            \sum_{x+y\neq z} P[X+Y=z|X=x\land Y=y]\cdot P[X=x\land Y=y]=0
+        \end{equation*}
+        Note that if $x+y=z$, then $P[x+y=z]=1$. Thus
+        \begin{equation*}
+            \begin{split}
+                &\sum_{x+y=z} P[X+Y=z|X=x\land Y=y]\cdot P[X=x\land Y=y]\\
+                &=P[X=x\land Y=y]\\
+                &=P[X=x]\cdot P[Y=y]
+            \end{split}
+        \end{equation*}
+        Therefore, $P[Z=z]=0+P[X=x]\cdot P[Y=y]=P[X=x]\cdot P[Y=y]$.
+    \end{proof}
+    \item \begin{proof}
+        We denote the parameter of the geometric distribution as $p$, as usual. Now we have $X,Y\sim Geom(p)$. Applying the density function we write $P[X=x]=(1-p)^{x-1}p$ and $P[Y=x]=(1-p)^{x-1}p$. Now the sum of $X$ and $Y$ is $Z=X+Y$. The probability for $Z$ is therefore 
+        \begin{equation*}
+            \begin{split}
+                P[Z=z]&=\sum_{x+y=z}(1-p)^{x-1}\cdot (1-p)^{y-1}p\\
+                &=p^2\sum_{x+y=z}(1-p)^{x+y-2}
+            \end{split}
+        \end{equation*}
+        
+        We know that $x,y\in \mathbb{N} \backslash {0}$. Thus there are $z-1$ terms in the above sum, resulting in
+        \begin{equation*}
+            \begin{split}
+                P[Z=z]&=p^2(z-1)(1-p)^{z-2}\\
+                &=\binom{z-1}{1}p^2(1-p)^{z-2} 
+            \end{split}
+        \end{equation*}
+        which is exactly a Pascal distribution with $r=2$.
+    \end{proof}
+\end{enumerate}
 \end{exercise}
 \end{document}
 
