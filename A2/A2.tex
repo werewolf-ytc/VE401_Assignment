@@ -72,5 +72,45 @@ Discrete Uniform Distribution
     \end{solution}
 \end{enumerate}
 \end{exercise}
+
+\begin{exercise}
+    Uniqueness of Moment generating functions - Simple Case
+    \begin{proof}
+        With $m_X(t)=m_Y(t)\ \forall t\in (-\varepsilon,\varepsilon)$ we can see that
+        \begin{equation*}
+            \frac{d}{dt}m_X(t)=\frac{d}{dt}m_Y(t) \ \forall t\in (-\varepsilon,\varepsilon)
+        \end{equation*}
+        This gives us
+        \begin{equation*}
+            \frac{d}{dt}m_X(t)|_{t=0}=\frac{d}{dt}m_Y(t)|_{t=0}
+        \end{equation*}
+        which is
+        \begin{equation*}
+            E[X]=E[Y]
+        \end{equation*}
+        By definition of the expectation,
+        \begin{equation*}
+            \sum_{x=0}^{n} x\cdot f_X(x)=\sum_{x=0}^{n} x\cdot f_Y(x)
+        \end{equation*}
+        Now we prove by induction that $\forall n\in \mathbb{N}$, $f_X(x)=f_Y(x)$.
+
+        First when $n=0$ we directly have $f_X(x)=f_Y(x)=1$.Now we want to prove that $f_X(n+1)=f_Y(n+1)$ given that $f_X(n)=f_Y(n)$. This is simple. We first write
+        \begin{equation*}
+            \begin{split}
+            \sum_{x=0}^{n+1} x\cdot f_X(x)&=\sum_{x=0}^{n+1} x\cdot f_Y(x)\\
+            \sum_{x=0}^n x\cdot f_X(x)+(n+1)f_X(n+1)&=\sum_{x=0}^n x\cdot f_Y(x) + (n+1)f_Y(n+1)
+            \end{split}
+        \end{equation*}
+        Note that $\sum_{x=0}^n x\cdot f_X(x)=\sum_{x=0}^n x\cdot f_Y(x)$ given that $\forall N\leq n$, $f_X(N)=f_Y(N)$.Thus by cancelling the sums, we have our desired result
+        \begin{equation*}
+            \begin{split}
+                (n+1)f_X(n+1)&=(n+1)f_Y(n+1)\\
+                f_X(n+1)&=f_Y(n+1)
+            \end{split}
+        \end{equation*}
+        
+        Therefore, by induction we have proved that $f_X(x)=f_Y(x)$ for $x=0,...,n$.
+    \end{proof}
+\end{exercise}
 \end{document}
 
