@@ -5,3 +5,5 @@
 *.out
 *.fls
 *.fdb_latexmk
+A2/__latexindent_temp.tex
+A3/__latexindent_temp.tex
