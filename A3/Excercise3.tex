@@ -1,0 +1,109 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsfonts}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{enumitem,balance}
+\usepackage{wrapfig}
+\usepackage{mathrsfs,euscript}
+\usepackage[usenames]{xcolor}
+\usepackage{hyperref}
+\usepackage[vlined,ruled,commentsnumbered,linesnumbered]{algorithm2e}
+
+%note: use \setcounter{exercise}{5} to change the numbering
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{solution}{Solution}
+
+%copied from VE281. I don't know what they are used for. Some are used to expand the margin.
+\setlength{\oddsidemargin}{-0.365in}
+\setlength{\evensidemargin}{-0.365in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{10.1in}
+\setlength{\textwidth}{7in}
+\makeatletter \renewenvironment{proof}[1][Proof] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse} \makeatother
+\makeatletter
+\renewenvironment{solution}[1][Solution] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse} \makeatother
+
+\begin{document}
+\title{VE401 Assignment 3}
+\author{Yang, Tiancheng 517370910259\\Qiu, Yuqing 518370910026\\Chang, Siyao 517370910024}
+
+\maketitle
+
+\newpage
+
+\setcounter{exercise}{10}
+\begin{exercise}
+Bivariate Normal Distribution as a Mixture of Independent Normal Distributions
+\end{exercise}
+\begin{enumerate}[label=\roman*)]
+    \item 1
+    \item 2
+    \item 3
+    \item 5
+    \item \begin{solution}
+        We know the m.g.f. of normal distribution is
+        \begin{equation*}
+            m_x\left(t\right)=exp\left(u\times t-0.5t^2\times D\right)
+        \end{equation*}
+        where D is the variance. We send it in matrix terms.
+
+        Let $X=(x1,x2)$. $M_x(t)=exp(u^Tt-0.5t^T\cdot D\cdot t)$, D is 
+        \begin{equation*}
+            \begin{pmatrix}
+                \sigma_1^2&,0\\
+                0&,\sigma_2^2
+            \end{pmatrix}
+        \end{equation*}
+        , A is the transform matrix for Y=AX, u is matrix of expression.
+        
+        We already know X follows bi-normal distribution for 
+        \begin{equation*}
+            \begin{split}
+                f_{x_1x_2}(X_1,X_2)&=P(X_1=x1,X_2=x_2)\\
+                &=P(X_1=x_1)\cdot P(X_2=x_2)\\
+                &=f_{x_1}(x)\cdot f_{x_2}(x)\\
+                &=\sqrt{A}\cdot \int e^{(n^2)^B}dx_1\cdot \sqrt{A}\cdot \int e^{(m^2)^B}dx_2\\
+                &=A\cdot \int e^{(m^2+n^2)^B} dx_1 dx_2
+            \end{split}
+        \end{equation*}
+        It’s Bi-normal distribution’s pdf when $\rho=0$.Since $X_1$,$X_2$ are independent, $\rho=0$. So X follows Bi-normal distribution. Y=AX
+        
+        In matrix term,
+        \begin{equation*}
+            \begin{split}
+                m_Y(t)&=E(e^Yt^T)=E(e^AXt^T)=E(e^{(A^Tt)^T}X)\\
+                &=exp(u^TA^Tt-0.5(A^Tt)^T\cdot D\cdot A^Tt)\\
+                &=exp((Au)^Tt-0.5(A^Tt)^T\cdot D\cdot A^Tt)\\
+                &=exp((Au)^Tt-0.5(t)^T\cdot (A\cdot D\cdot A^T)\cdot t)\\
+                &=exp((u')^Tt-0.5(t)^T\cdot (D')\cdot t)
+            \end{split}
+        \end{equation*}
+        
+        Obviously Y follows the same kind of distribution with only different parameters. Y follows bi-normal distribution.
+    
+        According to 3.10.3, 
+        \begin{equation*}
+            f_{x_1x_2}(x_1,x_2)=A\cdot exp(-0.5 < x-ux, \sum \ ^{-1} x(x-ux) > )
+        \end{equation*}
+        Hence
+        \begin{equation*}
+            f_{y_1y_2}(y_1,y_2)=A\cdot exp(-0.5<y-uy,\sum \ ^{-1}y(y-uy)>)
+        \end{equation*}
+        And $fy(y)=Ae^(m^2-2\rho mn+n^2)^B$
+        
+        with:
+
+        $A=1/2p\sigma_1\sigma_2 \sqrt{1-\rho_2}$
+
+        $B=-0.5/(1-\rho_2)$
+
+        $m=(y_2-u_2)/\sigma_2$
+
+        $n=(y_1-\mu_1)/\sigma_1$
+    \end{solution}
+\end{enumerate}
+\end{document}
+
