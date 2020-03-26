@@ -34,14 +34,82 @@
 
 \newpage
 
-\setcounter{exercise}{10}
+\setcounter{exercise}{9}
 \begin{exercise}
 Bivariate Normal Distribution as a Mixture of Independent Normal Distributions
 \end{exercise}
 \begin{enumerate}[label=\roman*)]
-    \item 1
-    \item 2
-    \item 3
+    \item \begin{proof}
+        First we want to say that, since $\phi (X)=AX$ is linear, we can directly see that $E(AX)=AE(X)$.
+
+        Of course, we can still multiply things together and still prove this formula. Assume that $A=\begin{pmatrix} A_{11} \ A_{12}\\ A_{21} \ A_{22}\end{pmatrix}$ and $X=\binom{x_1}{x_2}$. Then
+        \begin{equation*}
+            \begin{pmatrix}
+                A_{11} \ A_{12}\\
+                A_{21} \ A_{22}
+            \end{pmatrix}
+            \binom{x_1}{x_2}=\binom{A_{11}x_1+A_{12}x_2}{A_{21}x_1+A_{22}x_2}
+        \end{equation*}
+        And then
+        \begin{equation*}
+            E\binom{A_{11}x_1+A_{12}x_2}{A_{21}x_1+A_{22}x_2}=\binom{E(A_{11}x_1+A_{12}x_2)}{E(A_{21}x_1+A_{22}x_2)}=\binom{A_{11}E(x_1)+A_{12}E(x_2)}{A_{21}E(x_1)+A_{22}E(x_2)}=AE(X)
+        \end{equation*}
+    \end{proof}
+    \item For our convenience, we denote $VarX_1$ as $\sigma_1^2$, $VarX_2$ as $\sigma_2^2$, $Cov(X_1,X_2)$ as $\dagger$. Now we are going to take a deep breadth and multiply these matrix together.
+    \begin{equation*}
+    \begin{split}
+        &\begin{pmatrix}
+            A_{11} \ A_{12}\\
+            A_{21} \ A_{22}
+        \end{pmatrix}
+        \begin{pmatrix}
+            \sigma_1^2 & \dagger\\
+            \dagger & \sigma_2^2
+        \end{pmatrix}
+        \begin{pmatrix}
+            A_{11} \ A_{21}\\
+            A_{12} \ A_{22}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            A_{11}\sigma_1^2+A_{12}\dagger & A_{11}\dagger+A_{12}\sigma_2^2\\
+            A_{21}\sigma_1^2+A_{22}\dagger & A_{21}\dagger+A_{22}\sigma_2^2
+        \end{pmatrix}
+        \begin{pmatrix}
+            A_{11} \ A_{21}\\
+            A_{12} \ A_{22}
+        \end{pmatrix}=\\
+        &
+        \begin{pmatrix}
+            A_{11}^2\sigma_1^2+2A_{11}A_{12}\dagger+A_{12}^2\sigma_2^2 & A_{11}A_{21}\sigma_1^2+A_{21}A{12}\dagger+A_{12}A_{22}\sigma_2^2+A_{22}A_{11}\dagger\\
+            A_{11}A_{21}\sigma_1^2+A_{21}A_{12}\dagger+A_{12}A_{22}\sigma_2^2+A_{22}A_{11}\dagger & A_{21}^2\sigma_1^2 + 2A_{21}A_{22}\dagger + A_{22}^2\sigma_2^2
+        \end{pmatrix}
+    \end{split}
+    \end{equation*}
+    We can see exactly that main diagonal is just $Var(A_{11}x_1+A_{12}x_2)$ and $Var(A_{21}x_1+A_{22}x_2)$. For the other diagonal, we can see that $\sigma_1^2=Cov(x_1,x_1)^2$, hence they are exactly $Cov(A_{11}x_1+A_{12}x_2, A_{21}x_1+A_{22}x_2)$ and $Cov(A_{21}x_1+A_{22}x_2,A_{11}x_1+A_{12}x_2)$.
+
+    Therefore, $Var(AX)=A(VarX)A^T$.
+    \item $X_1$ and $X_2$ follow independent normal distributions, thus
+    \begin{equation*}
+        \begin{split}
+        f_X(x_1,x_2)&=f_{X_1}(x_1)\cdot f_{X_2}(x_2)\\
+        &=\frac{1}{2\pi}\cdot \frac{1}{\sigma_1}e^{-\frac{1}{2}(\frac{x_1-\mu_1}{\sigma_1})^2}\cdot \frac{1}{\sigma_2}e^{-\frac{1}{2}(\frac{x_2-\mu_2}{\sigma_2})^2}\\
+        &=\frac{1}{2\pi \sqrt{det\sum _x}}\cdot e^{-\frac{1}{2}(\frac{(x_1-\mu_1)^2}{\sigma_1^2}+\frac{(x_2-\mu_2)^2}{\sigma_2^2})}
+        \end{split}
+    \end{equation*}
+    For our convenience, we now focus on the exponential. Note that
+    \begin{equation*}
+        \begin{split}
+        \frac{(x_1-\mu_1)^2}{\sigma_1^2}+\frac{(x_2-\mu_2)^2}{\sigma_2^2}&=\left\langle \binom{x_1-\mu_1}{x_2-\mu_2}, \binom{\frac{1}{\sigma_1^2}\cdot (x_1-\mu_1)}{\frac{1}{\sigma_2^2}\cdot (x_2-\mu_2)} \right\rangle\\
+        &=\left\langle \binom{x_1-\mu_1}{x_2-\mu_2}, \begin{pmatrix}
+            \frac{1}{\sigma_1^2} & 0\\
+            0 & \frac{1}{\sigma_2^2}
+        \end{pmatrix}
+        \binom{x_1-\mu_1}{x_2-\mu_2}
+        \right\rangle\\
+        &=\left\langle x-\mu_x, \Sigma_x^{-1} (x-\mu_x)\right\rangle
+        \end{split}
+    \end{equation*}
     \item 5
     \item \begin{solution}
         We know the m.g.f. of normal distribution is
